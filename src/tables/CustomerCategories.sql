@@ -1,15 +1,16 @@
 USE [MyTestDB-01Git]
 GO
-/* 1. CustomerCategories Table Creation */
+/* CustomerCategories Table Creation */
 CREATE TABLE Sales.CustomerCategories
 (
     CustomerCategoryID INT IDENTITY(1,1) PRIMARY KEY,
     CategoryName NVARCHAR(50) NOT NULL,
     LastModified DATETIME2 DEFAULT GETDATE(),
-    ModifiedBy NVARCHAR(50) DEFAULT SYSTEM_USER
+    ModifiedBy NVARCHAR(50) DEFAULT SYSTEM_USER,
+    VersionControl TIMESTAMP 
 );
 GO
-/* 2. CustomerCategories Data Population */
+/* CustomerCategories Data Population */
 INSERT INTO Sales.CustomerCategories (CategoryName)
 VALUES ('Premium'), ('Standard'), ('Basic');
 GO
